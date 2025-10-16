@@ -33,3 +33,8 @@ ReAct: let the model observe the output from a tool call and then make decisions
 The key difference from the router is adding an edge from tools back to assistant, creating a cycle that allows the agent to call multiple tools sequentially and reason about their outputs. This implements the act → observe → reason pattern, enabling complex multi-step problem solving like sequential arithmetic operations.
 
 The text analysis cell creates a ReAct agent with three text processing tools (word count, character count, keyword extraction) that can analyze text comprehensively. It demonstrates how the agent can use multiple tools in sequence and combine their outputs to provide a complete text analysis report.
+
+## Module 1, Lesson 7: agent with memory
+Link: [agent-memory.ipynb](./agent-memory.ipynb)
+
+This notebook introduces persistence and memory to LangGraph agents using checkpointers to save graph state after each step. The key concept is that without memory, each graph execution is independent and transient, preventing multi-turn conversations. By compiling the graph with a MemorySaver checkpointer and using thread_id configuration, the agent can maintain conversation history across multiple invocations. This enables contextual follow-up queries like "Multiply that by 2" where the agent remembers previous results (like "that" referring to the sum of 3 and 4 being 7). The checkpointer writes state at every graph step, allowing the agent to pick up from the last checkpoint when continuing a conversation thread.
