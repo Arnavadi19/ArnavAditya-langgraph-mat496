@@ -21,7 +21,15 @@ Learnt how to build a chain in lagngraph using chat messages as a state. Used ad
 For binding tools to the LLM, i used bind_tools() which lets the LLM choose to call a function for computation purposes based on the the users input.
 created a complete tool execution cycle with conditional edges where the LLM makes tool calls, a separate node executes those tools and returns results, then the LLM provides a final response. Examples include building a math assistant that can perform addition and subtraction operations, demonstrating the four core concepts: chat messages as state, chat models in nodes, tool binding, and tool execution.
 
-### Module 1, Lesson 5: Router
+## Module 1, Lesson 5: Router
+Link: [router.ipynb](./router.ipynb)
 Learned to extedn graphs by using tool-calling nodes and conditional edges that route to these tool-calling nodes.
 
 This notebook demonstrates building a router-based agent that uses conditional routing to decide between direct responses or tool calls. Key learnings include using ToolNode and tools_condition from langgraph.prebuilt to simplify tool execution and routing logic. The graph routes to a tools node when the LLM makes tool calls, or directly to END for natural language responses, showing how LLMs can control program flow. The notebook introduces the concept of agents where the LLM acts as a router, directing execution based on user input requirements.
+
+## Module 1, Lesson 6: Agent
+Link: [agent.ipynb](./agent.ipynb)
+ReAct: let the model observe the output from a tool call and then make decisions on what to do next.
+The key difference from the router is adding an edge from tools back to assistant, creating a cycle that allows the agent to call multiple tools sequentially and reason about their outputs. This implements the act → observe → reason pattern, enabling complex multi-step problem solving like sequential arithmetic operations.
+
+The text analysis cell creates a ReAct agent with three text processing tools (word count, character count, keyword extraction) that can analyze text comprehensively. It demonstrates how the agent can use multiple tools in sequence and combine their outputs to provide a complete text analysis report.
