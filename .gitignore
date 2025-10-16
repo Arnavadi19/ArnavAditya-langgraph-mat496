@@ -1,3 +1,5 @@
 .venv/*
 .env
 langchain-academy/*
+studio/.env
+*.pyc

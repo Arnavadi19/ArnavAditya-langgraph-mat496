@@ -10,3 +10,7 @@ Langgraphs job is to give more control to the agent, while maintaining reilabili
 ## Module 1, Lesson 2: Simple Graph.
 Link: [simple-graph.ipynb](./simple-graph.ipynb)
 This notebook demonstrates building a simple LangGraph with 3 nodes using TypedDict state schema, conditional edges for routing, and the StateGraph class for compilation. Key concepts include nodes as Python functions that transform state, conditional edges that dynamically route between nodes based on logic, and the runnable protocol for graph execution.
+
+## Module 1, Lesson 3: Langsmith studio
+Link: [simple-graph.ipynb](./simple-graph.ipynb)
+Installed Studio, learnt to navigate the UI and tweaked the graph a little bit then tried a couple of prompts to see how it works. 
