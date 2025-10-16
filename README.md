@@ -20,3 +20,8 @@ Link: [chain.ipynb](./chain.ipynb)
 Learnt how to build a chain in lagngraph using chat messages as a state. Used add_messages for appending messages. 
 For binding tools to the LLM, i used bind_tools() which lets the LLM choose to call a function for computation purposes based on the the users input.
 created a complete tool execution cycle with conditional edges where the LLM makes tool calls, a separate node executes those tools and returns results, then the LLM provides a final response. Examples include building a math assistant that can perform addition and subtraction operations, demonstrating the four core concepts: chat messages as state, chat models in nodes, tool binding, and tool execution.
+
+### Module 1, Lesson 5: Router
+Learned to extedn graphs by using tool-calling nodes and conditional edges that route to these tool-calling nodes.
+
+This notebook demonstrates building a router-based agent that uses conditional routing to decide between direct responses or tool calls. Key learnings include using ToolNode and tools_condition from langgraph.prebuilt to simplify tool execution and routing logic. The graph routes to a tools node when the LLM makes tool calls, or directly to END for natural language responses, showing how LLMs can control program flow. The notebook introduces the concept of agents where the LLM acts as a router, directing execution based on user input requirements.

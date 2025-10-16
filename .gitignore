@@ -2,4 +2,5 @@
 .env
 langchain-academy/*
 studio/.env
+studio/.langgraph_api/*
 *.pyc
