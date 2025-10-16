@@ -14,3 +14,8 @@ This notebook demonstrates building a simple LangGraph with 3 nodes using TypedD
 ## Module 1, Lesson 3: Langsmith studio
 Link: [simple-graph.ipynb](./simple-graph.ipynb)
 Installed Studio, learnt to navigate the UI and tweaked the graph a little bit then tried a couple of prompts to see how it works. 
+
+## Module 1, Lesson 4: Chain
+Learnt how to build a chain in lagngraph using chat messages as a state. Used add_messages for appending messages. 
+For binding tools to the LLM, i used bind_tools() which lets the LLM choose to call a function for computation purposes based on the the users input.
+created a complete tool execution cycle with conditional edges where the LLM makes tool calls, a separate node executes those tools and returns results, then the LLM provides a final response. Examples include building a math assistant that can perform addition and subtraction operations, demonstrating the four core concepts: chat messages as state, chat models in nodes, tool binding, and tool execution.
