@@ -57,3 +57,10 @@ Link: [state-reducers](./state-reducers.ipynb)
 In this lesson we faced a problem while trying to overwrite the graph state on 2 different nodes, since there is no preferred way to perform these updates.Reducers solve this by specifyng a way to perform updates. Custom reducers further help in combining lists where the input may be None type.
 
 Next, We also cover the built-in add_messages reducer for message handling, which supports appending, re-writing messages by ID, and removal using RemoveMessage.
+
+## Module 2, Lesson 3: Multiple Schemas
+Link: [multiple-schemas](./multiple-schemas.ipynb)
+
+Dy default, all graph nodes use a single schema. We use multiple schemas like PrivateState for passing intermediate data b/w nodes that isnt needed in graph input/output. Next, we saw an example where there were different input and output schema. This exposes the graph API to specific fields whereas the internal nodes can work with a full Overall State.
+
+Added an example cell for displaying my learning from this video which achieves the above mentioned.
