@@ -67,8 +67,20 @@ Dy default, all graph nodes use a single schema. We use multiple schemas like Pr
 
 Added an example cell for displaying my learning from this video which achieves the above mentioned.
 
-## Module 4, Lesson 4: Trim and filter messages
+## Module 2, Lesson 4: Trim and filter messages
 
 Link: [trim-filter-messages](./trim-filter-messages.ipynb)
 
-This notebook addresses managing long-running conversations to avoid high token usage and latency. Three approaches are demonstrated: RemoveMessage with add_messages reducer to delete old messages from state, message filtering to pass only specific messages (e.g., messages[-1:]) to the model without modifying state, and trim_messages to restrict conversation history to a specified token count. The key difference is filtering/trimming happens at model invocation while RemoveMessage modifies the graph state itself.
+This notebook addresses managing long-running conversations to avoid high token usage and latency. 
+Three approaches are demonstrated: RemoveMessage with add_messages reducer to delete old messages from state, message filtering to pass only specific messages (e.g., messages[-1:]) to the model without modifying state, and trim_messages to restrict conversation history to a specified token count. 
+The key difference is filtering/trimming happens at model invocation while RemoveMessage modifies the graph state itself.
+
+## Module 4, Lesson 5: Chatbot w/ summarizing messages and memory
+
+Link: [chatbot-summarization](./chatbot-summarization.ipynb)
+
+In this notebook, we built a chatbot with conversation summarization and memory for handling long running convos.
+This chatbot uses a custom state schema with summary key which gets updated when conversation exceeds 6 messages. 
+The graph uses MemorySaver checkpointer with Thread IDs to maintain conversation states across multiple invocations/. This helps to compress conversation history hence reducing token usage while preserving context.
+
+
