@@ -1,5 +1,7 @@
 # Code for the tutorials of 'Foundation: Introduction to LangGraph' course for MAT496 Monsoon 2025
 
+# Module 1
+
 ## Module 1 Lesson 1: Motivation
 Since there is no code for this lesson, I have not attached any links here.
 
@@ -38,3 +40,15 @@ The text analysis cell creates a ReAct agent with three text processing tools (w
 Link: [agent-memory.ipynb](./agent-memory.ipynb)
 
 This notebook introduces persistence and memory to LangGraph agents using checkpointers to save graph state after each step. The key concept is that without memory, each graph execution is independent and transient, preventing multi-turn conversations. By compiling the graph with a MemorySaver checkpointer and using thread_id configuration, the agent can maintain conversation history across multiple invocations. This enables contextual follow-up queries like "Multiply that by 2" where the agent remembers previous results (like "that" referring to the sum of 3 and 4 being 7). The checkpointer writes state at every graph step, allowing the agent to pick up from the last checkpoint when continuing a conversation thread.
+
+# Module 2: State and Memory
+
+## Module 2, Lesson 1: State Schema
+Link: [state-schema](./state-schema.ipynb)
+
+This notebook introduces State Schema, which represents the structure and the types of data that will be used in a graph.
+TypedDicts provide a way to  define dictionaries with a fixed set of keys and specific value types for each key. Dataclasses are another way of defining the type of data in a graph. The problem with these 2 is that they dont enforce type checking at runtime.
+
+So, we use pydantic for defining state schemas to fix this problem.
+
+
