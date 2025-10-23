@@ -52,6 +52,7 @@ TypedDicts provide a way to  define dictionaries with a fixed set of keys and sp
 So, we use pydantic for defining state schemas to fix this problem.
 
 ## Module 2, Lesson 2: State Reducers
+
 Link: [state-reducers](./state-reducers.ipynb)
 
 In this lesson we faced a problem while trying to overwrite the graph state on 2 different nodes, since there is no preferred way to perform these updates.Reducers solve this by specifyng a way to perform updates. Custom reducers further help in combining lists where the input may be None type.
@@ -59,8 +60,15 @@ In this lesson we faced a problem while trying to overwrite the graph state on 2
 Next, We also cover the built-in add_messages reducer for message handling, which supports appending, re-writing messages by ID, and removal using RemoveMessage.
 
 ## Module 2, Lesson 3: Multiple Schemas
+
 Link: [multiple-schemas](./multiple-schemas.ipynb)
 
 Dy default, all graph nodes use a single schema. We use multiple schemas like PrivateState for passing intermediate data b/w nodes that isnt needed in graph input/output. Next, we saw an example where there were different input and output schema. This exposes the graph API to specific fields whereas the internal nodes can work with a full Overall State.
 
 Added an example cell for displaying my learning from this video which achieves the above mentioned.
+
+## Module 4, Lesson 4: Trim and filter messages
+
+Link: [trim-filter-messages](./trim-filter-messages.ipynb)
+
+This notebook addresses managing long-running conversations to avoid high token usage and latency. Three approaches are demonstrated: RemoveMessage with add_messages reducer to delete old messages from state, message filtering to pass only specific messages (e.g., messages[-1:]) to the model without modifying state, and trim_messages to restrict conversation history to a specified token count. The key difference is filtering/trimming happens at model invocation while RemoveMessage modifies the graph state itself.
