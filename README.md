@@ -83,4 +83,10 @@ In this notebook, we built a chatbot with conversation summarization and memory 
 This chatbot uses a custom state schema with summary key which gets updated when conversation exceeds 6 messages. 
 The graph uses MemorySaver checkpointer with Thread IDs to maintain conversation states across multiple invocations/. This helps to compress conversation history hence reducing token usage while preserving context.
 
+## Module 4, Lesson 6: Chatbot with summarizing messages and external memory
 
+Link: [chatbot-external-memory](./chatbot-external-memory.ipynb)
+
+The core idea here is linking a DB such as sqlite to have a persistent memory for a chatbot. We connected to the database, then created a checkpointer.
+By using a persistent SQLite database (either in-memory with ":memory:" or on-disk with a file path), the conversation state survives beyond the program lifecycle and can be reloaded even after restarting the notebook kernel. 
+This enables indefinite memory persistence where conversations can be resumed across sessions using the same thread_id, making it suitable for production chatbots that need long-term user memory.
