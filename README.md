@@ -51,4 +51,9 @@ TypedDicts provide a way to  define dictionaries with a fixed set of keys and sp
 
 So, we use pydantic for defining state schemas to fix this problem.
 
+## Module 2, Lesson 2: State Reducers
+Link: [state-reducers](./state-reducers.ipynb)
 
+In this lesson we faced a problem while trying to overwrite the graph state on 2 different nodes, since there is no preferred way to perform these updates.Reducers solve this by specifyng a way to perform updates. Custom reducers further help in combining lists where the input may be None type.
+
+Next, We also cover the built-in add_messages reducer for message handling, which supports appending, re-writing messages by ID, and removal using RemoveMessage.
