@@ -101,10 +101,22 @@ Link: [streaming-interruption](./module-3/streaming-interruption.ipynb)
 Learnt what streaming is, with multiple modes like "values" which streams full state after each node, "updates" which streams only state changes. astream_events() enables token-level streaming. 
 Also learnt the LangGraph API streaming using the SDK client, including "messages" stream mode. It simplifies  handling message events with complete and partial event types.
 
-## Module 4, Lesson 2: Breakpoints
+## Module 3, Lesson 2: Breakpoints
 
 LInk: [breakpoints](./module-3/breakpoints.ipynb)
 
 This video introduces breakpoints for human-in-the-loop approval by compiling graphs with interrupt_before=["node_name"] or interrupt_after, which pauses execution at specified nodes. When interrupted, you can inspect state using graph.get_state(thread), check state.next to see the next node, and resume execution by passing None as input to graph.stream(), which continues from the last checkpoint. This enables approval workflows where users can review agent actions (like tool calls) before allowing them to proceed, supporting use cases for debugging, approval, and state editing.
 
-## Module 4, Lesson 3: Editing State and Human Feedbacks
+## Module 3, Lesson 3: Editing State and Human Feedbacks
+
+LInk: [edit-state-human-feedback.ipynb](./module-3/edit-state-human-feedback.ipynb)
+
+
+This notebook demonstrates editing graph state after breakpoints using graph.update_state() to modify state (like adding/overwriting messages) before resuming execution. 
+It introduces a human feedback pattern where a no-op human_feedback node with interrupt_before serves as a placeholder for collecting user input, and update_state(..., as_node="human_feedback") applies the feedback as if that node executed it. 
+This enables workflows where humans can correct agent decisions, provide additional context, or change instructions mid-execution, with the agent seamlessly incorporating the feedback and continuing from where it left off.
+On the final breakpoint cell, gave a message to divide instead of multiplying 2 numbers.
+
+
+
+## Module 3, Lesson 4: Dynamic Breakpoints
