@@ -5,3 +5,4 @@ studio/.env
 studio/.langgraph_api/*
 *.pyc
 state_db/*
+*.pckl

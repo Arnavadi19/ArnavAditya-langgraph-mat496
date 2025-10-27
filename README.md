@@ -120,3 +120,8 @@ On the final breakpoint cell, gave a message to divide instead of multiplying 2 
 
 
 ## Module 3, Lesson 4: Dynamic Breakpoints
+
+Link: [dynamic-breakpoints](./module-3/dynamic-breakpoints.ipynb)
+
+We use dynamic breakpoints using NodeInterrupt, which allows nodes to conditionally interrupt themselves based on runtime logic like checking input length). Unlike static breakpoints set during compilation with interrupt_before/after, NodeInterrupt is raised from within a node and can pass custom messages explaining why the interruption occurred. To resume after a NodeInterrupt, you must update the state using graph.update_state() to change the condition that caused the interruption, otherwise the node will keep re-running and hitting the same interrupt.
+
