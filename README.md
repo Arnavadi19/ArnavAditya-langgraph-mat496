@@ -75,7 +75,7 @@ This notebook addresses managing long-running conversations to avoid high token 
 Three approaches are demonstrated: RemoveMessage with add_messages reducer to delete old messages from state, message filtering to pass only specific messages (e.g., messages[-1:]) to the model without modifying state, and trim_messages to restrict conversation history to a specified token count. 
 The key difference is filtering/trimming happens at model invocation while RemoveMessage modifies the graph state itself.
 
-## Module 4, Lesson 5: Chatbot w/ summarizing messages and memory
+## Module 2, Lesson 5: Chatbot w/ summarizing messages and memory
 
 Link: [chatbot-summarization](./chatbot-summarization.ipynb)
 
@@ -83,10 +83,20 @@ In this notebook, we built a chatbot with conversation summarization and memory 
 This chatbot uses a custom state schema with summary key which gets updated when conversation exceeds 6 messages. 
 The graph uses MemorySaver checkpointer with Thread IDs to maintain conversation states across multiple invocations/. This helps to compress conversation history hence reducing token usage while preserving context.
 
-## Module 4, Lesson 6: Chatbot with summarizing messages and external memory
+## Module 2, Lesson 6: Chatbot with summarizing messages and external memory
 
 Link: [chatbot-external-memory](./chatbot-external-memory.ipynb)
 
 The core idea here is linking a DB such as sqlite to have a persistent memory for a chatbot. We connected to the database, then created a checkpointer.
 By using a persistent SQLite database (either in-memory with ":memory:" or on-disk with a file path), the conversation state survives beyond the program lifecycle and can be reloaded even after restarting the notebook kernel. 
 This enables indefinite memory persistence where conversations can be resumed across sessions using the same thread_id, making it suitable for production chatbots that need long-term user memory.
+
+
+# Module 3: UX and HITL
+
+## Module 3, Lesson 1: Streaming
+
+Link: [streaming-interruption](./module-3/streaming-interruption.ipynb)
+
+Learnt what streaming is, with multiple modes like "values" which streams full state after each node, "updates" which streams only state changes. astream_events() enables token-level streaming. 
+Also learnt the LangGraph API streaming using the SDK client, including "messages" stream mode. It simplifies  handling message events with complete and partial event types.
