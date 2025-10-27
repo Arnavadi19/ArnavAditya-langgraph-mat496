@@ -125,3 +125,11 @@ Link: [dynamic-breakpoints](./module-3/dynamic-breakpoints.ipynb)
 
 We use dynamic breakpoints using NodeInterrupt, which allows nodes to conditionally interrupt themselves based on runtime logic like checking input length). Unlike static breakpoints set during compilation with interrupt_before/after, NodeInterrupt is raised from within a node and can pass custom messages explaining why the interruption occurred. To resume after a NodeInterrupt, you must update the state using graph.update_state() to change the condition that caused the interruption, otherwise the node will keep re-running and hitting the same interrupt.
 
+## Module 3, Lesson 5: Time Travel.
+
+Link: [time-travel](./module-3/time-travel.ipynb)
+
+
+This notebook demonstrates time travel in LangGraph - the ability to view, replay, and fork from past graph states for debugging and experimentation. Using get_state_history(), you can access all prior checkpoints with their checkpoint_id, then replay from any checkpoint by passing its config back to the graph (which re-executes from that point), or fork by using update_state() with a specific checkpoint_id to create a new branch with modified state. This enables powerful debugging workflows where you can rewind to any point, change inputs, and see how different decisions affect outcomes without losing the original execution history.
+
+Added a cell which demonstrates time travel by creating a dummy simple task planner, viewing checkpoint history with get_state_history(), replaying from the planner checkpoint, and forking with a different task input to create a new execution branch. 
