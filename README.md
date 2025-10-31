@@ -151,3 +151,11 @@ Link: [sub-graphs](./module-4/sub-graph.ipynb)
 
 This lesson shows how to nest state graphs (sub-graphs) inside a parent graph to build multi-agent workflows. Each sub-graph manages its own schema, while the parent graph coordinates them by sharing overlapping keys (e.g., cleaned_logs) and collecting their outputs (fa_summary, report). It also highlights using output schemas to avoid reducer conflicts when sub-graphs run in parallel.
 
+
+## Module 4, Lesson 3: Map-reduce
+
+Link: [map-reduce](./module-4/map-reduce.ipynb)
+
+This lesson builds a map-reduce workflow in LangGraph: the generate_topics node breaks a user topic into subtopics, and Send fans each subject out to a generate_joke node running in parallel while a reducer accumulates the jokes. A final best_joke node aggregates those results to pick the funniest entry. It illustrates how Send, parallel execution with reducers, and map/reduce logic combine to solve tasks efficiently.
+
+Modified the last cells to generate jokes on new topics.
