@@ -136,10 +136,18 @@ Added a cell which demonstrates time travel by creating a dummy simple task plan
 
 # Module 4: BUilding your assistant
 
-## MOdule 4, Lesson 1: Parallelization
+## Module 4, Lesson 1: Parallelization
 
-Link: [parallization](./module-4/parallelization.ipynb)
+Link: [parallelization](./module-4/parallelization.ipynb)
 
 This lesson demonstrates how LangGraph handles parallel node execution, showing fan-out/fan-in patterns, the need for reducers (operator.add, custom sorters) to merge concurrent updates, and controlling update order after parallel steps. It then builds a multi-source research graph that runs Wikipedia and web search lookups in parallel before an LLM answers the question, and concludes by streaming results via the LangGraph API client.
 
 Modified the cell to ask about Apple instead of Nvidia as a minor modification.
+
+
+## Module 4, Lesson 2: Sub-graphs
+
+Link: [sub-graphs](./module-4/sub-graph.ipynb)
+
+This lesson shows how to nest state graphs (sub-graphs) inside a parent graph to build multi-agent workflows. Each sub-graph manages its own schema, while the parent graph coordinates them by sharing overlapping keys (e.g., cleaned_logs) and collecting their outputs (fa_summary, report). It also highlights using output schemas to avoid reducer conflicts when sub-graphs run in parallel.
+
